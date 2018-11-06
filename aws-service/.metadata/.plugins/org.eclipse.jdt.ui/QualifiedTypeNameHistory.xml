@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.datamodeling.DynamoDB"/>
+<fullyQualifiedTypeName name="com.amazonaws.regions.Regions"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient"/>
+<fullyQualifiedTypeName name="com.amazonaws.regions.Region"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.lambda.runtime.Context"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.Item"/>
+<fullyQualifiedTypeName name="com.stockercloud.aws.item.InventoryItem"/>
+<fullyQualifiedTypeName name="com.stockercloud.aws.item.utils.MapUtil"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.stockercloud.aws.item.BaseHandler"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.PrimaryKey"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.Table"/>
+</qualifiedTypeNameHistroy>

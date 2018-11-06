@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title> StockerCloud </title>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1> StockerCloud Administrator Panel </h1>
+
+    <main id="app">
+        <p v-if="message"><span style="background: yellow; font-size: 1.3em"> {{ message }} </span></p>
+        <hr />
+        <h3> Create Inventory Item </h3>
+        <form id="create-item-form" @submit.prevent="processForm">
+            <table>
+                <tr>
+                    <td><label for="item_name"> Item Name: </label></td>
+                    <td><input id="item_name" v-model="newItem.name" /></td>
+                </tr>
+                <tr>
+                    <td><label for="current_quantity"> Current Quantity: </label></td>
+                    <td><input id="current_quantity" v-model="newItem.currentQuantity" /></td>
+                </tr>
+                <tr>
+                    <td><label for="order_quantity"> Order Quantity: </label></td>
+                    <td><input id="order_quantity" v-model="newItem.orderQuantity" /></td>
+                </tr>
+                <tr>
+                    <td><label for="desired_quantity"> Desired Quantity: </label></td>
+                    <td><input id="desired_quantity" v-model="newItem.desiredQuantity" /></td>
+                </tr>
+                <tr>
+                    <td><label for="supplier"> Supplier: </label></td>
+                    <td><input id="supplier" v-model="newItem.supplier" /></td>
+                </tr>
+            </table>
+        </form>
+        <button v-on:click="createItem"> Create Item </button>
+        <hr />
+        <button v-on:click="getItems" style="width: 150px"> View Inventory </button>
+        <button v-on:click="items = null" style="width: 150px" v-if="items"> Hide Inventory </button>
+        <p style="color : red" v-if='loadingItems'> Loading items, please wait... </p>
+        <table v-if="items && !loadingItems" style="border-collapse: collapse; margin-top: 10px;">
+            <tr style="color: white; background: black;">
+                <th> Item Name </th>
+                <th> Current Quantity </th>
+                <th> Order Quantity </th>
+                <th> Desired Quantity </th>
+                <th> Supplier </th>
+                <th> Actions </th>
+            </tr>
+            <tr v-for="item in items">
+                <td> <input v-model="item.name" /> </td>
+                <td> <input v-model="item.currentQuantity" /> </td>
+                <td> <input v-model="item.orderQuantity" /> </td>
+                <td> <input v-model="item.desiredQuantity" /> </td>
+                <td> <input v-model="item.supplier" /> </td>
+                <td>
+                    <button v-on:click="updateItems(item)"> Update </button>
+                    <button v-on:click="deleteItem(item.id)"> Delete </button>
+                </td>
+            </tr>
+        </table>
+        <hr />
+        <button v-on:click="getShortages" style="width: 150px"> View Shortages </button>
+        <button v-on:click="shortages = null" style="width: 150px" v-if="shortages"> Hide Shortages </button>
+        <p style="color : red" v-if='loadingShortages'> Loading shortages, please wait... </p>
+        <p style="color : red" v-if='closingShortage'> Closing shortage, please wait... </p>
+        <div v-for="shortage in shortages" style="width: 300px; margin-top: 10px;">
+            <table style="border: 1px solid #cccccc; border-collapse: collapse; width: 100%;">
+                <tr>
+                    <td style="color: white; background: black; width: 100%"><b> {{ shortage.supplier }} </b></td>
+                    <td> <button v-on:click="closeShortage(shortage)"> Close </button> </td>
+                </tr>
+                <tr v-for="shortageItem in shortage.items">
+                    <td style="border: 1px solid #cccccc;"> {{ shortageItem.name }} </td>
+                    <td style="border: 1px solid #cccccc;"> {{ shortageItem.desiredQuantity - shortageItem.currentQuantity }} </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+            API_BASE: "https://qj7z8d44vk.execute-api.us-east-2.amazonaws.com/production/",
+            message: null,
+            loadingItems: false,
+            loadingShortages: false,
+            closingShortage: false,
+            newItem: {
+                name: '',
+                currentQuantity: '',
+                orderQuantity: '',
+                desiredQuantity: '',
+                supplier: '',
+            },
+            items: null,
+            shortages: null
+        },
+        methods: {
+            getItems: function() {
+                var self = this;
+                self.loadingItems = true;
+                self.message = null;
+                axios.get(self.API_BASE + "getitems")
+                    .then(function (response) {
+                        self.items = response.data.items;
+                        self.loadingItems = false;
+                    });
+            },
+            deleteItem: function(itemId) {
+                var self = this;
+                var request = {};
+                request.id = itemId;
+                self.message = null;
+                axios.post(self.API_BASE + "deleteitem", request)
+                    .then(function (response) {
+                        self.getItems();
+                        self.getShortages();
+                        self.message = "Item successfully deleted.";
+                    });
+            },
+            createItem: function() {
+                var self = this;
+                var request = {};
+                request.item = self.newItem;
+                self.message = null;
+                axios.post(self.API_BASE + "createitem", request)
+                    .then(function (response) {
+                        self.getItems();
+                        self.clearCreateItemForm();
+                        self.message = "Item successfully created.";
+                    });
+            },
+            clearCreateItemForm: function() {
+                var selfItem = this.newItem;
+                selfItem.name = '';
+                selfItem.currentQuantity = '';
+                selfItem.orderQuantity = '';
+                selfItem.desiredQuantity = '';
+                selfItem.supplier = '';
+            },
+            updateItems: function(item) {
+                var self = this;
+                var request = {};
+                request.items = [];
+                request.items.push(item);
+                self.message = null;
+                axios.post(self.API_BASE + "updateitems", request)
+                    .then(function (response) {
+                        self.getItems();
+                        self.getShortages();
+                        self.message = "Item successfully updated.";
+                    });
+            },
+            getShortages: function() {
+                var self = this;
+                self.loadingShortages = true;
+                self.message = null;
+                self.shortages = null;
+                axios.get(self.API_BASE + "getshortages")
+                    .then(function (response) {
+                        self.shortages = response.data.shortages;
+                        self.loadingShortages = false;
+                    });
+            },
+            closeShortage: function(shortage) {
+                var self = this;
+                var request = {};
+                var shortageItem;
+                self.closingShortage = true;
+                self.message = null;
+                for (var i = 0; i < shortage.items.length; i++)
+                {
+                    shortageItem = shortage.items[i];
+                    shortageItem.currentQuantity = shortageItem.desiredQuantity;
+                }
+                request.items = shortage.items;
+                axios.post(self.API_BASE + "updateitems", request)
+                    .then(function (response) {
+                        self.getItems();
+                        self.getShortages();
+                        self.message = "Shortage successfully closed.";
+                        self.closingShortage = false;
+                    });
+            }
+        }
+    })
+    </script>
+
+</body>
+</html>
