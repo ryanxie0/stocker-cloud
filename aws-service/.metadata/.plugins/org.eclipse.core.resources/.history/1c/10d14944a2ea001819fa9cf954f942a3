@@ -1,0 +1,65 @@
+package com.stockercloud.aws.item.getitems;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.ItemCollection;
+import com.amazonaws.services.dynamodbv2.document.ScanOutcome;
+import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.document.internal.IteratorSupport;
+import com.stockercloud.aws.api.DynamoDBHelper;
+import com.stockercloud.aws.item.InventoryItem;
+
+import static org.mockito.Mockito.*;
+
+@RunWith(MockitoJUnitRunner.class)
+public class GetItemsHandlerTest {
+
+	@Mock DynamoDBHelper helper;
+	@Mock Table table;
+	@Mock ItemCollection<ScanOutcome> itemCollection;
+	@Mock IteratorSupport<Item, ScanOutcome> iterator;
+	@Mock Item dbItem;
+	
+	@InjectMocks private GetItemsHandler handler;
+	
+	private String itemName = "mouse";
+
+	@Before
+	public void setUp() throws Exception {
+		when(helper.getTable(anyString())).thenReturn(table);
+		when(table.scan()).thenReturn(itemCollection);
+		when(itemCollection.iterator()).thenReturn(iterator);
+		when(dbItem.getString("name")).thenReturn(itemName);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testHandleRequestNoItems() {
+		GetItemsResponse response = handler.handleRequest(new GetItemsRequest(), null);
+		assertTrue(response.getItems().isEmpty());
+	}
+	
+	@Test
+	public void testHandleRequestWithItems() {
+		when(iterator.hasNext()).thenReturn(true, false);
+		when(iterator.next()).thenReturn(dbItem);
+		GetItemsResponse response = handler.handleRequest(new GetItemsRequest(), null);
+		assertTrue(response.getItems().size() == 1);
+		InventoryItem inventoryItem = response.getItems().get(0);
+		assertEquals(itemName, inventoryItem.getName());
+		// don't need to test every field because a unit test can be written for the map util
+	}
+}

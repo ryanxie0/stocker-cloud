@@ -1,0 +1,18 @@
+package com.stockercloud.aws.api;
+
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+import com.amazonaws.services.dynamodbv2.document.Table;
+
+public class DynamoDBHelper {
+	
+	protected DynamoDB dynamoDb;
+
+	public Table getTable(String table)
+	{
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+        dynamoDb = new DynamoDB(client);
+		return dynamoDb.getTable(table);
+	}
+}

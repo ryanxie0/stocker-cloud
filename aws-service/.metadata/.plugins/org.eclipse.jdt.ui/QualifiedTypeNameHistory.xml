@@ -7,15 +7,23 @@
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="com.amazonaws.services.lambda.runtime.Context"/>
 <fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.Item"/>
-<fullyQualifiedTypeName name="com.stockercloud.aws.item.InventoryItem"/>
 <fullyQualifiedTypeName name="com.stockercloud.aws.item.utils.MapUtil"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="com.stockercloud.aws.item.BaseHandler"/>
 <fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.PrimaryKey"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.stockercloud.aws.api.DynamoDBHelper"/>
+<fullyQualifiedTypeName name="org.mockito.Mock"/>
+<fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
+<fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+<fullyQualifiedTypeName name="org.mockito.runners.MockitoJUnitRunner"/>
+<fullyQualifiedTypeName name="org.mockito.junit.MockitoJUnitRunner"/>
+<fullyQualifiedTypeName name="org.mockito.Mockito"/>
 <fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.Table"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodbv2.document.internal.IteratorSupport"/>
+<fullyQualifiedTypeName name="com.stockercloud.aws.item.InventoryItem"/>
+<fullyQualifiedTypeName name="com.stockercloud.aws.item.BaseHandler"/>
 </qualifiedTypeNameHistroy>

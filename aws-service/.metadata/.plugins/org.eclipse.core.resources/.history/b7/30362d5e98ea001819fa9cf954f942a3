@@ -1,0 +1,38 @@
+package com.stockercloud.aws.item.getitems;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.amazonaws.services.dynamodbv2.document.Table;
+import com.stockercloud.aws.api.DynamoDBHelper;
+
+@RunWith(MockitoJUnitRunner.class)
+public class GetItemsHandlerTest {
+
+	@Mock DynamoDBHelper helper;
+	@Mock Table table;
+	@InjectMocks private GetItemsHandler handler;
+
+	@Before
+	public void setUp() throws Exception {
+		Mockito.when(helper.getTable(Mockito.anyString())).thenReturn(table);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testHandleRequest() {
+		GetItemsResponse response = handler.handleRequest(new GetItemsRequest(), null);
+	}
+
+}
