@@ -1,0 +1,45 @@
+package com.stockercloud.aws.item.getshortages;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.stockercloud.aws.item.InventoryItem;
+import com.stockercloud.aws.item.getitems.GetItemsHandler;
+import com.stockercloud.aws.item.getitems.GetItemsRequest;
+import com.stockercloud.aws.item.getitems.GetItemsResponse;
+
+@RunWith(MockitoJUnitRunner.class)
+public class GetShortagesHandlerTest {
+
+	@Mock GetItemsHandler getItemsHandler;
+	
+	@InjectMocks GetShortagesHandler handler;
+	
+	@Before
+	public void setUp() throws Exception {
+		GetItemsResponse response = new GetItemsResponse();
+		InventoryItem item = new InventoryItem();
+		item.setCurrentQuantity(0);
+		item.setOrderQuantity(10);
+		List<InventoryItem> items = new ArrayList<>();
+		items.add(item);
+		response.setItems(items);
+		when(getItemsHandler.handleRequest(any(GetItemsRequest.class), null)).thenReturn(response);
+	}
+	
+	@Test
+	public void test() {
+		GetShortagesResponse response = handler.handleRequest(new GetShortagesRequest(), null)
+	}
+
+}

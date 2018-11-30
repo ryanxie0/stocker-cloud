@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>UpdateItemsHandler.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">stockercloud</a> &gt; <a href="index.source.html" class="el_package">com.stockercloud.aws.item.updateitems</a> &gt; <span class="el_source">UpdateItemsHandler.java</span></div><h1>UpdateItemsHandler.java</h1><pre class="source lang-java linenums">package com.stockercloud.aws.item.updateitems;
+
+import java.util.List;
+
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.stockercloud.aws.item.BaseHandler;
+import com.stockercloud.aws.item.InventoryItem;
+import com.stockercloud.aws.item.utils.ItemUtil;
+
+<span class="fc" id="L13">public class UpdateItemsHandler extends BaseHandler implements RequestHandler&lt;UpdateItemsRequest, UpdateItemsResponse&gt;{</span>
+
+	public UpdateItemsResponse handleRequest(UpdateItemsRequest request, Context context)
+	{
+<span class="fc" id="L17">		List&lt;InventoryItem&gt; items = request.getItems();</span>
+<span class="fc" id="L18">		Table dbTable = super.getItemTable();</span>
+		Item dbItem;
+<span class="fc bfc" id="L20" title="All 2 branches covered.">		for (InventoryItem item : items)</span>
+		{
+<span class="fc" id="L22">			ItemUtil.validateInput(item);</span>
+<span class="fc" id="L23">			dbItem = ItemUtil.mapToDBItem(item, item.getId());</span>
+<span class="fc" id="L24">			dbTable.putItem(dbItem);</span>
+<span class="fc" id="L25">		}		</span>
+<span class="fc" id="L26">		return new UpdateItemsResponse();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

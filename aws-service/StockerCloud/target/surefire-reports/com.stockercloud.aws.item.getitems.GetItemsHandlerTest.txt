@@ -1,11 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.stockercloud.aws.item.getitems.GetItemsHandlerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.235 s <<< FAILURE! - in com.stockercloud.aws.item.getitems.GetItemsHandlerTest
-testHandleRequest(com.stockercloud.aws.item.getitems.GetItemsHandlerTest)  Time elapsed: 0.01 s  <<< ERROR!
-java.lang.Error: 
-Unresolved compilation problem: 
-	The method thenReturn(IteratorSupport<Item,ScanOutcome>) in the type OngoingStubbing<IteratorSupport<Item,ScanOutcome>> is not applicable for the arguments (Iterator<Item>)
-
-	at com.stockercloud.aws.item.getitems.GetItemsHandlerTest.setUp(GetItemsHandlerTest.java:38)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.528 s - in com.stockercloud.aws.item.getitems.GetItemsHandlerTest

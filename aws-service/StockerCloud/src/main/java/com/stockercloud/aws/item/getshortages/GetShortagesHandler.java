@@ -7,18 +7,18 @@ import java.util.Map;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.stockercloud.aws.item.BaseHandler;
 import com.stockercloud.aws.item.InventoryItem;
 import com.stockercloud.aws.item.getitems.GetItemsHandler;
 import com.stockercloud.aws.item.getitems.GetItemsRequest;
 import com.stockercloud.aws.item.getitems.GetItemsResponse;
 
-public class GetShortagesHandler extends BaseHandler implements RequestHandler<GetShortagesRequest, GetShortagesResponse>{
+public class GetShortagesHandler implements RequestHandler<GetShortagesRequest, GetShortagesResponse>{
+	
+	private GetItemsHandler getItemsHandler = new GetItemsHandler();
 	
 	public GetShortagesResponse handleRequest(GetShortagesRequest request, Context context)
 	{
     	Map<String, List<InventoryItem>> shortageMap = new HashMap<>();
-    	GetItemsHandler getItemsHandler = new GetItemsHandler();
     	GetItemsResponse getItemsResponse = getItemsHandler.handleRequest(new GetItemsRequest(), context);
     	for (InventoryItem item: getItemsResponse.getItems())
     	{

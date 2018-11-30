@@ -1,5 +1,0 @@
-package com.stockercloud.aws.api;
-
-public class DynamoDBHelper {
-
-}

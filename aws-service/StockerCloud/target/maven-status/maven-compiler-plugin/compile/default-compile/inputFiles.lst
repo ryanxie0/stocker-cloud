@@ -1,9 +1,9 @@
-C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\utils\MapUtil.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\deleteitem\DeleteItemHandler.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\createitem\CreateItemRequest.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\getitems\GetItemsRequest.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\api\DynamoDBHelper.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\getitems\GetItemsResponse.java
+C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\ValidationException.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\getitems\GetItemsHandler.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\getshortages\GetShortagesRequest.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\getshortages\GetShortagesHandler.java
@@ -18,3 +18,4 @@ C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\createitem\CreateItemResponse.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\deleteitem\DeleteItemResponse.java
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\updateitems\UpdateItemsRequest.java
+C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\main\java\com\stockercloud\aws\item\utils\ItemUtil.java

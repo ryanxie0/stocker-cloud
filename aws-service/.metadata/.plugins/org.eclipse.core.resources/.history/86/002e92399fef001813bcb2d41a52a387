@@ -1,0 +1,32 @@
+package com.stockercloud.aws.item.getshortages;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+
+import com.stockercloud.aws.item.getitems.GetItemsHandler;
+
+public class GetShortagesHandlerTest {
+
+	@Mock GetItemsHandler getItemsHandler;
+	
+	@InjectMocks GetShortagesHandler handler;
+	
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CreateItemHandler.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">stockercloud</a> &gt; <a href="index.source.html" class="el_package">com.stockercloud.aws.item.createitem</a> &gt; <span class="el_source">CreateItemHandler.java</span></div><h1>CreateItemHandler.java</h1><pre class="source lang-java linenums">package com.stockercloud.aws.item.createitem;
+
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.stockercloud.aws.item.BaseHandler;
+import com.stockercloud.aws.item.InventoryItem;
+import com.stockercloud.aws.item.utils.ItemUtil;
+
+<span class="fc" id="L10">public class CreateItemHandler extends BaseHandler implements RequestHandler&lt;CreateItemRequest, CreateItemResponse&gt; {</span>
+	
+	public CreateItemResponse handleRequest(CreateItemRequest request, Context context)
+	{
+<span class="fc" id="L14">		InventoryItem item = request.getItem();</span>
+<span class="fc" id="L15">		ItemUtil.validateInput(item);</span>
+<span class="fc" id="L16">		long id = generateItemId();</span>
+<span class="fc" id="L17">		Item dbItem = ItemUtil.mapToDBItem(item, id);</span>
+<span class="fc" id="L18">		super.getItemTable().putItem(dbItem);</span>
+<span class="fc" id="L19">		CreateItemResponse response = new CreateItemResponse();</span>
+<span class="fc" id="L20">		response.setId(id);</span>
+<span class="fc" id="L21">		return response;</span>
+	}
+	
+	private long generateItemId()
+	{
+<span class="fc" id="L26">		return System.currentTimeMillis();	// mostly for simplicity to try and guarantee the item id is unique</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

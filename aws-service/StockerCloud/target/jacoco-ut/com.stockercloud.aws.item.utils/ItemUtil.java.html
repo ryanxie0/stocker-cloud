@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ItemUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">stockercloud</a> &gt; <a href="index.source.html" class="el_package">com.stockercloud.aws.item.utils</a> &gt; <span class="el_source">ItemUtil.java</span></div><h1>ItemUtil.java</h1><pre class="source lang-java linenums">package com.stockercloud.aws.item.utils;
+
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.stockercloud.aws.item.InventoryItem;
+import com.stockercloud.aws.item.ValidationException;
+
+<span class="nc" id="L7">public class ItemUtil {</span>
+	
+	public static final Item mapToDBItem(InventoryItem item, long id)
+	{
+<span class="fc" id="L11">		Item dbItem = new Item().withPrimaryKey(&quot;id&quot;, id)</span>
+<span class="fc" id="L12">				.withString(&quot;name&quot;, item.getName())</span>
+<span class="fc" id="L13">				.withString(&quot;supplier&quot;, item.getSupplier())</span>
+<span class="fc" id="L14">				.withInt(&quot;currentQuantity&quot;, item.getCurrentQuantity())</span>
+<span class="fc" id="L15">				.withInt(&quot;orderQuantity&quot;, item.getOrderQuantity())</span>
+<span class="fc" id="L16">				.withInt(&quot;desiredQuantity&quot;, item.getDesiredQuantity());</span>
+<span class="fc" id="L17">		return dbItem;</span>
+	}
+	
+	public static final InventoryItem mapToInventoryItem(Item dbItem)
+	{
+<span class="fc" id="L22">		InventoryItem item = new InventoryItem();</span>
+<span class="fc" id="L23">		item.setId(dbItem.getLong(&quot;id&quot;));</span>
+<span class="fc" id="L24">		item.setName(dbItem.getString(&quot;name&quot;));</span>
+<span class="fc" id="L25">		item.setSupplier(dbItem.getString(&quot;supplier&quot;));</span>
+<span class="fc" id="L26">		item.setCurrentQuantity(dbItem.getInt(&quot;currentQuantity&quot;));</span>
+<span class="fc" id="L27">		item.setOrderQuantity(dbItem.getInt(&quot;orderQuantity&quot;));</span>
+<span class="fc" id="L28">		item.setDesiredQuantity(dbItem.getInt(&quot;desiredQuantity&quot;));</span>
+<span class="fc" id="L29">		return item;</span>
+	}
+	
+	public static final void validateInput(InventoryItem item)
+	{		
+<span class="pc bpc" id="L34" title="1 of 4 branches missed.">		if (item.getName() == null || item.getName().length() == 0)</span>
+		{
+<span class="fc" id="L36">			throw new ValidationException(&quot;Name cannot be empty&quot;);</span>
+		}
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		if (item.getCurrentQuantity() &lt; 0)</span>
+		{
+<span class="fc" id="L40">			throw new ValidationException(&quot;Current quantity must be non-negative&quot;);</span>
+		}
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if (item.getOrderQuantity() &lt; 0)</span>
+		{
+<span class="fc" id="L44">			throw new ValidationException(&quot;Order quantity must be non-negative&quot;);</span>
+		}
+<span class="fc bfc" id="L46" title="All 2 branches covered.">		if (item.getDesiredQuantity() &lt; 0)</span>
+		{
+<span class="fc" id="L48">			throw new ValidationException(&quot;Desired quantity must be non-negative&quot;);</span>
+		}
+<span class="pc bpc" id="L50" title="1 of 4 branches missed.">		if (item.getSupplier() == null || item.getSupplier().length() == 0)</span>
+		{
+<span class="fc" id="L52">			throw new ValidationException(&quot;Supplier cannot be empty&quot;);</span>
+		}
+<span class="fc bfc" id="L54" title="All 2 branches covered.">		if (item.getOrderQuantity() &gt;= item.getDesiredQuantity())</span>
+		{
+<span class="fc" id="L56">			throw new ValidationException(&quot;Order quantity must be less than desired quantity&quot;);</span>
+		}
+<span class="fc" id="L58">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

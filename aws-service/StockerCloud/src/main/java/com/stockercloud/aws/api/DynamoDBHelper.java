@@ -5,6 +5,8 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Table;
 
+// this class contains Amazon AWS API calls which cannot be unit tested
+// for other unit tests this is simply mocked using Mockito
 public class DynamoDBHelper {
 	
 	protected DynamoDB dynamoDb;

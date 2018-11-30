@@ -11,7 +11,6 @@ com\stockercloud\aws\item\deleteitem\DeleteItemRequest.class
 com\stockercloud\aws\item\InventoryItem.class
 com\stockercloud\aws\item\getitems\GetItemsRequest.class
 com\stockercloud\aws\item\updateitems\UpdateItemsHandler.class
-com\stockercloud\aws\item\utils\MapUtil.class
 com\stockercloud\aws\item\deleteitem\DeleteItemResponse.class
 com\stockercloud\aws\api\DynamoDBHelper.class
 com\stockercloud\aws\item\deleteitem\DeleteItemHandler.class

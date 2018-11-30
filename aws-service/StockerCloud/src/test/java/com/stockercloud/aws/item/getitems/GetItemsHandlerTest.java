@@ -34,7 +34,7 @@ public class GetItemsHandlerTest {
 	// injects mocked helper above into the handler
 	@InjectMocks private GetItemsHandler handler;
 	
-	private String itemName = "mouse";
+	private String name = "mouse";
 
 	@Before
 	public void setUp() throws Exception {
@@ -42,11 +42,11 @@ public class GetItemsHandlerTest {
 		when(helper.getTable(anyString())).thenReturn(table);
 		when(table.scan()).thenReturn(itemCollection);
 		when(itemCollection.iterator()).thenReturn(iterator);
-		when(dbItem.getString("name")).thenReturn(itemName);
+		when(dbItem.getString("name")).thenReturn(name);
 	}
 
 	@Test
-	public void testHandleRequestNoItems() {
+	public void testNoItems() {
 		GetItemsResponse response = handler.handleRequest(new GetItemsRequest(), null);
 		assertTrue(response.getItems().isEmpty());
 		// checks that the handler calls the helper once
@@ -54,7 +54,7 @@ public class GetItemsHandlerTest {
 	}
 	
 	@Test
-	public void testHandleRequestWithItems() {
+	public void testWithItems() {
 		// mock the while loop to return a single item
 		when(iterator.hasNext()).thenReturn(true, false);
 		when(iterator.next()).thenReturn(dbItem);
@@ -62,7 +62,7 @@ public class GetItemsHandlerTest {
 		assertTrue(response.getItems().size() == 1);
 		InventoryItem inventoryItem = response.getItems().get(0);
 		// don't need to test every field because a unit test can be written for the map util
-		assertEquals(itemName, inventoryItem.getName());
+		assertEquals(name, inventoryItem.getName());
 		// checks that the handler calls the helper once
 		verify(helper).getTable(BaseHandler.DYNAMODB_TABLE_NAME);
 	}

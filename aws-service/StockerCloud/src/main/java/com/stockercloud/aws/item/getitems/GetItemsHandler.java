@@ -11,7 +11,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.stockercloud.aws.item.BaseHandler;
 import com.stockercloud.aws.item.InventoryItem;
-import com.stockercloud.aws.item.utils.MapUtil;
+import com.stockercloud.aws.item.utils.ItemUtil;
 
 public class GetItemsHandler extends BaseHandler implements RequestHandler<GetItemsRequest, GetItemsResponse> {
 	
@@ -26,7 +26,7 @@ public class GetItemsHandler extends BaseHandler implements RequestHandler<GetIt
     	while (iterator.hasNext())
     	{
     		dbItem = iterator.next();
-    		item = MapUtil.mapToInventoryItem(dbItem);
+    		item = ItemUtil.mapToInventoryItem(dbItem);
     		items.add(item);
     	}    	
     	GetItemsResponse response = new GetItemsResponse();

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.stockercloud.aws.item.getitems.GetItemsHandlerTest" time="1.235" tests="1" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.stockercloud.aws.item.getitems.GetItemsHandlerTest" time="0.528" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\ryanl\AppData\Local\Temp\surefire4003653782701496574\surefirebooter2089958727044665203.jar C:\Users\ryanl\AppData\Local\Temp\surefire4003653782701496574 2018-11-17T14-14-52_543-jvmRun1 surefire5719899500795100481tmp surefire_01681540842422152041tmp"/>
+    <property name="sun.java.command" value="C:\Users\ryanl\AppData\Local\Temp\surefire3216967658670694466\surefirebooter6473721196277933542.jar C:\Users\ryanl\AppData\Local\Temp\surefire3216967658670694466 2018-11-26T13-39-28_004-jvmRun1 surefire1249347350009583425tmp surefire_09045529397103790048tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\target\test-classes;C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\target\classes;C:\Users\ryanl\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\ryanl\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\ryanl\.m2\repository\org\mockito\mockito-core\2.7.22\mockito-core-2.7.22.jar;C:\Users\ryanl\.m2\repository\net\bytebuddy\byte-buddy\1.6.11\byte-buddy-1.6.11.jar;C:\Users\ryanl\.m2\repository\net\bytebuddy\byte-buddy-agent\1.6.11\byte-buddy-agent-1.6.11.jar;C:\Users\ryanl\.m2\repository\org\objenesis\objenesis\2.5\objenesis-2.5.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-s3\1.11.433\aws-java-sdk-s3-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-kms\1.11.433\aws-java-sdk-kms-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-core\1.11.433\aws-java-sdk-core-1.11.433.jar;C:\Users\ryanl\.m2\repository\commons-logging\commons-logging\1.1.3\commons-logging-1.1.3.jar;C:\Users\ryanl\.m2\repository\org\apache\httpcomponents\httpclient\4.5.5\httpclient-4.5.5.jar;C:\Users\ryanl\.m2\repository\org\apache\httpcomponents\httpcore\4.4.9\httpcore-4.4.9.jar;C:\Users\ryanl\.m2\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;C:\Users\ryanl\.m2\repository\software\amazon\ion\ion-java\1.0.2\ion-java-1.0.2.jar;C:\Users\ryanl\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.6.7.1\jackson-databind-2.6.7.1.jar;C:\Users\ryanl\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.6.0\jackson-annotations-2.6.0.jar;C:\Users\ryanl\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.6.7\jackson-core-2.6.7.jar;C:\Users\ryanl\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-cbor\2.6.7\jackson-dataformat-cbor-2.6.7.jar;C:\Users\ryanl\.m2\repository\joda-time\joda-time\2.8.1\joda-time-2.8.1.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\jmespath-java\1.11.433\jmespath-java-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-lambda-java-events\1.3.0\aws-lambda-java-events-1.3.0.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-sns\1.11.433\aws-java-sdk-sns-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-sqs\1.11.433\aws-java-sdk-sqs-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-cognitoidentity\1.11.433\aws-java-sdk-cognitoidentity-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-kinesis\1.11.433\aws-java-sdk-kinesis-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-java-sdk-dynamodb\1.11.433\aws-java-sdk-dynamodb-1.11.433.jar;C:\Users\ryanl\.m2\repository\com\amazonaws\aws-lambda-java-core\1.1.0\aws-lambda-java-core-1.1.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\ryanl"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\ryanl\AppData\Local\Temp\surefire4003653782701496574\surefirebooter2089958727044665203.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ryanl\AppData\Local\Temp\surefire3216967658670694466\surefirebooter6473721196277933542.jar;C:\\Users\\ryanl\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.7.5.201505241946\\org.jacoco.agent-0.7.5.201505241946-runtime.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_131\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -52,7 +52,7 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\ryanl\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\apache-maven-3.6.0-bin\apache-maven-3.6.0\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Ryan\school\2017 fall\eecs281\Active-HDL\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\WINDOWS\System32\OpenSSH\;C:\Users\ryanl\AppData\Local\Microsoft\WindowsApps;C:\Users\ryanl\AppData\Local\GitHubDesktop\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_171/bin/server;C:/Program Files/Java/jre1.8.0_171/bin;C:/Program Files/Java/jre1.8.0_171/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\ryanl\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\apache-maven-3.6.0-bin\apache-maven-3.6.0\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Ryan\school\2017 fall\eecs281\Active-HDL\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\WINDOWS\System32\OpenSSH\;C:\Users\ryanl\AppData\Local\Microsoft\WindowsApps;C:\Users\ryanl\AppData\Local\GitHubDesktop\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\eclipse\java-2018-09\eclipse;;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="java.vm.version" value="25.131-b11"/>
@@ -60,12 +60,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testHandleRequest" classname="com.stockercloud.aws.item.getitems.GetItemsHandlerTest" time="0.01">
-    <error message="Unresolved compilation problem: &#10;	The method thenReturn(IteratorSupport&lt;Item,ScanOutcome&gt;) in the type OngoingStubbing&lt;IteratorSupport&lt;Item,ScanOutcome&gt;&gt; is not applicable for the arguments (Iterator&lt;Item&gt;)&#10;" type="java.lang.Error"><![CDATA[java.lang.Error: 
-Unresolved compilation problem: 
-	The method thenReturn(IteratorSupport<Item,ScanOutcome>) in the type OngoingStubbing<IteratorSupport<Item,ScanOutcome>> is not applicable for the arguments (Iterator<Item>)
-
-	at com.stockercloud.aws.item.getitems.GetItemsHandlerTest.setUp(GetItemsHandlerTest.java:38)
-]]></error>
-  </testcase>
+  <testcase name="testWithItems" classname="com.stockercloud.aws.item.getitems.GetItemsHandlerTest" time="0.006"/>
+  <testcase name="testNoItems" classname="com.stockercloud.aws.item.getitems.GetItemsHandlerTest" time="0.002"/>
 </testsuite>

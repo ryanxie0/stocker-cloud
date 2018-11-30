@@ -1,1 +1,5 @@
 C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\test\java\com\stockercloud\aws\item\getitems\GetItemsHandlerTest.java
+C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\test\java\com\stockercloud\aws\item\deleteitem\DeleteItemHandlerTest.java
+C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\test\java\com\stockercloud\aws\item\createitem\CreateItemHandlerTest.java
+C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\test\java\com\stockercloud\aws\item\updateitems\UpdateItemsHandlerTest.java
+C:\Users\ryanl\OneDrive\Documents\GitHub\stocker-cloud\aws-service\StockerCloud\src\test\java\com\stockercloud\aws\item\getshortages\GetShortagesHandlerTest.java

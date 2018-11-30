@@ -5,16 +5,17 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.stockercloud.aws.item.BaseHandler;
 import com.stockercloud.aws.item.InventoryItem;
-import com.stockercloud.aws.item.utils.MapUtil;
+import com.stockercloud.aws.item.utils.ItemUtil;
 
-public class CreateItemHandler extends BaseHandler implements RequestHandler<CreateItemRequest, CreateItemResponse>  {
+public class CreateItemHandler extends BaseHandler implements RequestHandler<CreateItemRequest, CreateItemResponse> {
 	
 	public CreateItemResponse handleRequest(CreateItemRequest request, Context context)
 	{
-		InventoryItem item = request.getItem();		
+		InventoryItem item = request.getItem();
+		ItemUtil.validateInput(item);
 		long id = generateItemId();
-		Item dbItem = MapUtil.mapToDBItem(item, id);
-		super.getItemTable().putItem(dbItem);		
+		Item dbItem = ItemUtil.mapToDBItem(item, id);
+		super.getItemTable().putItem(dbItem);
 		CreateItemResponse response = new CreateItemResponse();
 		response.setId(id);
 		return response;
