@@ -1,5 +1,0 @@
-package com.stockercloud.aws.item;
-
-public class ValidationException {
-
-}
