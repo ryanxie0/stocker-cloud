@@ -20,5 +20,5 @@ public class Shortage {
 	}
 	public void setItems(List<InventoryItem> items) {
 		this.items = items;
-	}	
+	}
 }

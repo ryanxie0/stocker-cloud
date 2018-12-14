@@ -53,7 +53,7 @@ public class ShortageNotification {
                 retrieveShortages();
             }
         };
-        timer.schedule(timerTask, 0, 60000);
+        timer.schedule(timerTask, 0, 60000); // hard-coded to rest for 60s
     }
 
     private void retrieveShortages()
